@@ -1,0 +1,4 @@
+D:\My projects\C# project\LabOne\example\obj\Debug\net5.0\RouteApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\My projects\C# project\LabOne\example\obj\Debug\net5.0\RouteApp.AssemblyInfoInputs.cache
+D:\My projects\C# project\LabOne\example\obj\Debug\net5.0\RouteApp.AssemblyInfo.cs
+D:\My projects\C# project\LabOne\example\obj\Debug\net5.0\RouteApp.csproj.CoreCompileInputs.cache

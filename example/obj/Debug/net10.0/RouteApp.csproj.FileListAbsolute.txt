@@ -1,0 +1,14 @@
+D:\My projects\C# project\LabOne\example\bin\Debug\net10.0\RouteApp.exe
+D:\My projects\C# project\LabOne\example\bin\Debug\net10.0\RouteApp.deps.json
+D:\My projects\C# project\LabOne\example\bin\Debug\net10.0\RouteApp.runtimeconfig.json
+D:\My projects\C# project\LabOne\example\bin\Debug\net10.0\RouteApp.dll
+D:\My projects\C# project\LabOne\example\bin\Debug\net10.0\RouteApp.pdb
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\RouteApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\RouteApp.AssemblyInfoInputs.cache
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\RouteApp.AssemblyInfo.cs
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\RouteApp.csproj.CoreCompileInputs.cache
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\RouteApp.dll
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\refint\RouteApp.dll
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\RouteApp.pdb
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\RouteApp.genruntimeconfig.cache
+D:\My projects\C# project\LabOne\example\obj\Debug\net10.0\ref\RouteApp.dll
