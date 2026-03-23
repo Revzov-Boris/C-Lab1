@@ -34,7 +34,7 @@ public class CityService : ICityService
         return _cityRepository.GetAll();
     }
     
-    // LINQ запрос: поиск по имени
+    //  поиск по имени
     public IReadOnlyList<City> SearchCitiesByName(string searchTerm)
     {
         return _cityRepository.GetAll()
@@ -43,7 +43,7 @@ public class CityService : ICityService
             .AsReadOnly();
     }
     
-    // LINQ запрос: фильтрация по стране
+    //  фильтрация по стране
     public IReadOnlyList<City> GetCitiesByCountry(string country)
     {
         return _cityRepository.GetAll()
@@ -52,7 +52,7 @@ public class CityService : ICityService
             .AsReadOnly();
     }
     
-    // LINQ запрос: сортировка по часовому поясу
+    //  сортировка по часовому поясу
     public IReadOnlyList<City> GetCitiesSortedByTimeOffset()
     {
         return _cityRepository.GetAll()

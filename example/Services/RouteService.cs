@@ -69,7 +69,7 @@ public class RouteService : IRouteService
         }
     }
     
-    // LINQ запрос: получение остановок маршрута с сортировкой по времени
+    //  получение остановок маршрута с сортировкой по времени
     public IReadOnlyList<Halt> GetRouteHalts(int routeId)
     {
         var route = _routeRepository.GetById(routeId);
@@ -85,7 +85,7 @@ public class RouteService : IRouteService
             .AsReadOnly();
     }
     
-    // LINQ запрос: маршруты, проходящие через конкретный город
+    //  маршруты, проходящие через конкретный город
     public IReadOnlyList<Route> GetRoutesByCity(int cityId)
     {
         var haltsInCity = _haltRepository.GetByCityId(cityId);
@@ -106,7 +106,7 @@ public class RouteService : IRouteService
 
 
     
-    // LINQ запрос: сортировка маршрутов по количеству остановок
+    //  сортировка маршрутов по количеству остановок
     public IReadOnlyList<Route> GetRoutesSortedByHaltsCount()
     {
         return _routeRepository.GetAll()
@@ -115,7 +115,7 @@ public class RouteService : IRouteService
             .AsReadOnly();
     }
     
-    // LINQ запрос: маршруты за определенный период
+    //  маршруты за определенный период
     public IReadOnlyList<Route> GetRoutesByDateRange(DateTime startDate, DateTime endDate)
     {
         var haltsInRange = _haltRepository.GetAll()
@@ -135,7 +135,7 @@ public class RouteService : IRouteService
             .AsReadOnly();
     }
     
-    // LINQ запрос: группировка остановок по городам с подсчетом количества
+    //  группировка остановок по городам с подсчетом количества
     public IReadOnlyDictionary<City, int> GetHaltsCountByCity()
     {
         var halts = _haltRepository.GetAll();

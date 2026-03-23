@@ -26,7 +26,7 @@ public class HaltService : IHaltService
         return _haltRepository.GetAll();
     }
     
-    // LINQ запрос: остановки по маршруту с сортировкой по времени
+    //  остановки по маршруту с сортировкой по времени
     public IReadOnlyList<Halt> GetHaltsByRoute(int routeId)
     {
         return _haltRepository.GetByRouteId(routeId)
@@ -35,7 +35,7 @@ public class HaltService : IHaltService
             .AsReadOnly();
     }
     
-    // LINQ запрос: остановки по городу с сортировкой по времени
+    //  остановки по городу с сортировкой по времени
     public IReadOnlyList<Halt> GetHaltsByCity(int cityId)
     {
         return _haltRepository.GetByCityId(cityId)
@@ -44,7 +44,7 @@ public class HaltService : IHaltService
             .AsReadOnly();
     }
     
-    // LINQ запрос: остановки за период
+    //  остановки за период
     public IReadOnlyList<Halt> GetHaltsByDateRange(DateTime startDate, DateTime endDate)
     {
         return _haltRepository.GetAll()
@@ -54,7 +54,7 @@ public class HaltService : IHaltService
             .AsReadOnly();
     }
     
-    // LINQ запрос: остановки по городу за период
+    //  остановки по городу за период
     public IReadOnlyList<Halt> GetHaltsByCityAndDateRange(int cityId, DateTime startDate, DateTime endDate)
     {
         return _haltRepository.GetAll()
@@ -64,7 +64,7 @@ public class HaltService : IHaltService
             .AsReadOnly();
     }
     
-    // LINQ запрос: все остановки, отсортированные по времени
+    //  все остановки, отсортированные по времени
     public IReadOnlyList<Halt> GetHaltsSortedByTime()
     {
         return _haltRepository.GetAll()
@@ -73,7 +73,7 @@ public class HaltService : IHaltService
             .AsReadOnly();
     }
     
-    // LINQ запрос: группировка остановок по городам с подсчетом количества
+    //  группировка остановок по городам с подсчетом количества
     public IReadOnlyDictionary<City, int> GetHaltsCountByCity()
     {
         var halts = _haltRepository.GetAll();
@@ -96,7 +96,7 @@ public class HaltService : IHaltService
         return result.AsReadOnly();
     }
     
-    // LINQ запрос: группировка остановок по маршрутам с подсчетом количества
+    //  группировка остановок по маршрутам с подсчетом количества
     public IReadOnlyDictionary<int, int> GetHaltsCountByRoute()
     {
         return _haltRepository.GetAll()
@@ -110,7 +110,7 @@ public class HaltService : IHaltService
             .AsReadOnly();
     }
     
-    // LINQ запрос: последние N остановок
+    //  последние N остановок
     public IReadOnlyList<Halt> GetLatestHalts(int count)
     {
         return _haltRepository.GetAll()
