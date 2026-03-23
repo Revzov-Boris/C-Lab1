@@ -29,7 +29,6 @@ public class AppMenu
             System.Console.WriteLine("2. Города - поиск по названию");
             System.Console.WriteLine("3. Маршруты - отсортированные по количеству остановок");
             System.Console.WriteLine("4. Маршруты - проходящие через конкретный город");
-            System.Console.WriteLine("5. Остановки - последние 10 остановок");
             System.Console.WriteLine("6. Статистика - количество остановок по городам");
             System.Console.WriteLine("0. Выход");
             System.Console.Write("Выберите опцию: ");
@@ -49,9 +48,6 @@ public class AppMenu
                     break;
                 case "4":
                     ShowRoutesByCity();
-                    break;
-                case "5":
-                    ShowLatestHalts();
                     break;
                 case "6":
                     ShowHaltsCountByCity();
@@ -180,27 +176,6 @@ public class AppMenu
         }
     }
     
-    // Запрос 5: Последние 10 остановок
-    private void ShowLatestHalts()
-    {
-        var halts = _haltService.GetLatestHalts(10);
-        
-        System.Console.WriteLine("\n=== Последние 10 остановок ===");
-        
-        if (!halts.Any())
-        {
-            System.Console.WriteLine("Нет остановок");
-            return;
-        }
-        
-        foreach (var halt in halts)
-        {
-            var city = _cityService.GetCity(halt.CityId);
-            var route = halt.RouteId.HasValue ? _routeService.GetRoute(halt.RouteId.Value) : null;
-            
-            System.Console.WriteLine($"{halt.HaltTime:dd.MM.yyyy HH:mm} | {city?.Name} | {(route != null ? $"Маршрут: {route.Name}" : "Без маршрута")}");
-        }
-    }
     
     // Запрос 6: Статистика остановок по городам
     private void ShowHaltsCountByCity()
@@ -224,10 +199,6 @@ public class AppMenu
     // Добавление тестовых данных для демонстрации
     private void AddTestData()
     {
-        // Проверяем, есть ли уже данные
-        if (_cityService.GetAllCities().Any())
-            return;
-        
         System.Console.WriteLine("Добавление тестовых данных...");
         
         // Добавляем города
@@ -240,7 +211,7 @@ public class AppMenu
         _cityService.CreateCity("Париж", 1, "Франция", "Иль-де-Франс");
         
         // Добавляем маршруты
-        _routeService.CreateRoute("Транссибирский экспресс", "Москва - Владивосток");
+        _routeService.CreateRoute("Транссибирская магистраль", "Москва - Владивосток");
         _routeService.CreateRoute("Европейский туризм", "Лондон - Париж - Берлин");
         _routeService.CreateRoute("Восточный путь", "Токио - Осака - Киото");
         
@@ -256,17 +227,15 @@ public class AppMenu
         var europeTour = _routeService.GetAllRoutes().First(r => r.Name == "Европейский тур");
         var eastTour = _routeService.GetAllRoutes().First(r => r.Name == "Восточное путешествие");
         
-        // Добавляем остановки для Транссибирского экспресса
         _routeService.AddHaltToRoute(transsib.Id, moscow.Id, DateTime.Now.AddDays(-5).AddHours(10));
         _routeService.AddHaltToRoute(transsib.Id, spb.Id, DateTime.Now.AddDays(-4).AddHours(15));
         _routeService.AddHaltToRoute(transsib.Id, novosibirsk.Id, DateTime.Now.AddDays(-2).AddHours(8));
         
-        // Добавляем остановки для Европейского тура
         _routeService.AddHaltToRoute(europeTour.Id, london.Id, DateTime.Now.AddDays(-3).AddHours(9));
         _routeService.AddHaltToRoute(europeTour.Id, paris.Id, DateTime.Now.AddDays(-2).AddHours(14));
         _routeService.AddHaltToRoute(europeTour.Id, paris.Id, DateTime.Now.AddDays(-1).AddHours(10));
         
-        // Добавляем остановки для Восточного путешествия
+  
         _routeService.AddHaltToRoute(eastTour.Id, tokyo.Id, DateTime.Now.AddDays(-4).AddHours(11));
         _routeService.AddHaltToRoute(eastTour.Id, tokyo.Id, DateTime.Now.AddDays(-2).AddHours(9));
         
@@ -280,6 +249,5 @@ public class AppMenu
         _haltService.AddHalt(halt3);
         
         System.Console.WriteLine("Тестовые данные добавлены!");
-        Thread.Sleep(1500);
     }
 }

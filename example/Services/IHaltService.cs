@@ -4,6 +4,7 @@ namespace TravelApp.Services;
 
 public interface IHaltService
 {
+     void AddHalt(Halt halt);
     Halt? GetHalt(int id);
     IReadOnlyList<Halt> GetAllHalts();
     IReadOnlyList<Halt> GetHaltsByRoute(int routeId);
