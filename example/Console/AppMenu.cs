@@ -23,7 +23,7 @@ public class AppMenu
         
         while (true)
         {
-            System.Console.Clear();
+            //System.Console.Clear();
             System.Console.WriteLine("=== Управление маршрутами ===");
             System.Console.WriteLine("1. Города - отсортированные по часовому поясу");
             System.Console.WriteLine("2. Города - поиск по названию");
@@ -204,16 +204,19 @@ public class AppMenu
         // Добавляем города
         _cityService.CreateCity("Москва", 3, "Россия", "Центральный");
         _cityService.CreateCity("Санкт-Петербург", 3, "Россия", "Северо-Западный");
-        _cityService.CreateCity("Новосибирск", 7, "Россия", "Сибирский");
+        _cityService.CreateCity("Новосибирск", 7, "Россия", "Восточная Сибирь");
+        _cityService.CreateCity("Владивосток", 13, "Россия", "Дальний Восток");
         _cityService.CreateCity("Лондон", 0, "Великобритания", "Англия");
         _cityService.CreateCity("Нью-Йорк", -5, "США", "Нью-Йорк");
         _cityService.CreateCity("Токио", 9, "Япония", "Канто");
+        _cityService.CreateCity("Пекин", 9, "Китай", "Северо-Восток");
+        _cityService.CreateCity("Дели", 5, "Индия", "Центр");
         _cityService.CreateCity("Париж", 1, "Франция", "Иль-де-Франс");
         
         // Добавляем маршруты
         _routeService.CreateRoute("Транссибирская магистраль", "Москва - Владивосток");
         _routeService.CreateRoute("Европейский туризм", "Лондон - Париж - Берлин");
-        _routeService.CreateRoute("Восточный путь", "Токио - Осака - Киото");
+        _routeService.CreateRoute("Восточный путь", "Пекин - Дели");
         
         // Получаем ID городов для добавления остановок
         var moscow = _cityService.GetAllCities().First(c => c.Name == "Москва");
@@ -222,10 +225,20 @@ public class AppMenu
         var london = _cityService.GetAllCities().First(c => c.Name == "Лондон");
         var paris = _cityService.GetAllCities().First(c => c.Name == "Париж");
         var tokyo = _cityService.GetAllCities().First(c => c.Name == "Токио");
+        var deli = _cityService.GetAllCities().First(c => c.Name == "Дели");
+        var pekin = _cityService.GetAllCities().First(c => c.Name == "Пекин");
         
-        var transsib = _routeService.GetAllRoutes().First(r => r.Name == "Транссибирский экспресс");
-        var europeTour = _routeService.GetAllRoutes().First(r => r.Name == "Европейский тур");
-        var eastTour = _routeService.GetAllRoutes().First(r => r.Name == "Восточное путешествие");
+
+
+        System.Console.WriteLine("FROM_APP");
+        foreach (var route in _routeService.GetAllRoutes())
+        {
+            System.Console.WriteLine("ПУТЬ");
+            System.Console.WriteLine($"{route.Name} - {route.TotalHalts} остановок | {route.Description}");
+        }
+        var transsib = _routeService.GetAllRoutes().First(r => r.Name == "Транссибирская магистраль");
+        var europeTour = _routeService.GetAllRoutes().First(r => r.Name == "Европейский туризм");
+        var eastTour = _routeService.GetAllRoutes().First(r => r.Name == "Восточный путь");
         
         _routeService.AddHaltToRoute(transsib.Id, moscow.Id, DateTime.Now.AddDays(-5).AddHours(10));
         _routeService.AddHaltToRoute(transsib.Id, spb.Id, DateTime.Now.AddDays(-4).AddHours(15));
@@ -237,7 +250,9 @@ public class AppMenu
         
   
         _routeService.AddHaltToRoute(eastTour.Id, tokyo.Id, DateTime.Now.AddDays(-4).AddHours(11));
-        _routeService.AddHaltToRoute(eastTour.Id, tokyo.Id, DateTime.Now.AddDays(-2).AddHours(9));
+        _routeService.AddHaltToRoute(eastTour.Id, pekin.Id, DateTime.Now.AddDays(-2).AddHours(9));
+        _routeService.AddHaltToRoute(eastTour.Id, deli.Id, DateTime.Now.AddDays(-1).AddHours(1));
+
         
         // Добавляем несколько остановок без маршрута
         var halt1 = new Halt { CityId = moscow.Id, HaltTime = DateTime.Now.AddDays(-1).AddHours(20), RouteId = null };

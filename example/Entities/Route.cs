@@ -11,6 +11,6 @@ public class Route
     
     public override string ToString()
     {
-        return $"{Name} - {Description} (остановок: {TotalHalts})";
+        return $"{Name} - {Description} (остановок: {TotalHalts}) " + String.Join(" -> ", HaltIds);
     }
 }

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My projects\\C# project\\LabOne\\example\\RouteApp.csproj",
+      "projectUniqueName": "D:\\My projects\\C# project\\C-Lab1\\example\\RouteApp.csproj",
       "projectName": "RouteApp",
-      "projectPath": "D:\\My projects\\C# project\\LabOne\\example\\RouteApp.csproj",
+      "projectPath": "D:\\My projects\\C# project\\C-Lab1\\example\\RouteApp.csproj",
       "packagesPath": "C:\\Users\\Boris\\.nuget\\packages\\",
-      "outputPath": "D:\\My projects\\C# project\\LabOne\\example\\obj\\",
+      "outputPath": "D:\\My projects\\C# project\\C-Lab1\\example\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,7 +51,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -72,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

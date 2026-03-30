@@ -11,6 +11,7 @@ public class RouteRepository : IRouteRepository
     {
         route.Id = _nextId++;
         _routes.Add(route);
+        System.Console.WriteLine("ADD ROUTE: " + route.Name);
     }
     
     public Route? GetById(int id)
@@ -20,7 +21,8 @@ public class RouteRepository : IRouteRepository
     
     public IReadOnlyList<Route> GetAll()
     {
-        return _routes.AsReadOnly();
+       
+        return _routes;
     }
     
     public void Update(Route route)

@@ -33,7 +33,12 @@ public class RouteService : IRouteService
     
     public IReadOnlyList<Route> GetAllRoutes()
     {
-        return _routeRepository.GetAll();
+        System.Console.WriteLine("FROM SERVICE");
+        IReadOnlyList<Route> routes = _routeRepository.GetAll();
+         foreach(var r in routes) {
+            System.Console.WriteLine(r.Name);
+        }
+        return routes;
     }
     
     public void AddHaltToRoute(int routeId, int cityId, DateTime haltTime)

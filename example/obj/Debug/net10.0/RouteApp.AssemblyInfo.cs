@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RouteApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9d1222acfceb7f251dec443294c652f398575a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38241445a0eede1de550ed492663b95677403e37")]
 [assembly: System.Reflection.AssemblyProductAttribute("RouteApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RouteApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
